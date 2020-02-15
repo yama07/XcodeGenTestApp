@@ -4,6 +4,9 @@ if which mint >/dev/null; then
     echo "===== Install packages ======="
     mint bootstrap
 
+    echo "===== Add frameworks ========="
+    carthage bootstrap --platform iOS
+
     echo "===== Generate xcodeproj ====="
     mint run yonaskolb/xcodegen xcodegen generate
 else

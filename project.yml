@@ -24,6 +24,9 @@ targets:
         DEBUG_MODE: YES
       Release:
         DEBUG_MODE: NO
+    dependencies:
+      - carthage: XCGLogger
+      - carthage: ObjcExceptionBridging
     preBuildScripts:
       - name: Run SwiftFormat
         script: mint run nicklockwood/SwiftFormat swiftformat $SRCROOT
