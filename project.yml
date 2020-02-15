@@ -24,6 +24,12 @@ targets:
         DEBUG_MODE: YES
       Release:
         DEBUG_MODE: NO
+    preBuildScripts:
+      - name: Run SwiftFormat
+        script: mint run nicklockwood/SwiftFormat swiftformat $SRCROOT
+    postCompileScripts:
+      - name: Run SwiftLint
+        script: mint run realm/SwiftLint swiftlint
   XcodeGenTestAppTests:
     type: bundle.unit-test
     platform: iOS
