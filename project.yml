@@ -1,0 +1,73 @@
+name: XcodeGenTestApp
+
+options:
+  bundleIdPrefix: jp.yama07
+  deploymentTarget:
+    iOS: 12.0
+  xcodeVersion: 11.3.1
+  carthageExecutablePath: mint run Carthage/Carthage carthage
+
+settings:
+  DEVELOPMENT_TEAM: 7K2VVCZ596
+
+targets:
+  XcodeGenTestApp:
+    type: application
+    platform: iOS
+    sources:
+      - XcodeGenTestApp
+    settings:
+      base:
+        INFOPLIST_FILE: XcodeGenTestApp/Info.plist
+    config:
+      Debug:
+        DEBUG_MODE: YES
+      Release:
+        DEBUG_MODE: NO
+  XcodeGenTestAppTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - XcodeGenTestAppTests
+    settings:
+      base:
+        INFOPLIST_FILE: XcodeGenTestAppTests/Info.plist
+    dependencies:
+      - target: XcodeGenTestApp
+
+  XcodeGenTestAppUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - XcodeGenTestAppUITests
+    settings:
+      base:
+        INFOPLIST_FILE: XcodeGenTestAppUITests/Info.plist
+    dependencies:
+      - target: XcodeGenTestApp
+
+schemes:
+  XcodeGenTestApp:
+    build:
+      targets:
+        XcodeGenTestApp: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - XcodeGenTestApp
+      targets:
+        - name: XcodeGenTestAppTests
+          parallelizable: true
+          randomExecutionOrder: true
+        - name: XcodeGenTestAppUITests
+          parallelizable: true
+          randomExecutionOrder: true
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
