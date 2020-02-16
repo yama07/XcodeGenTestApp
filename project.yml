@@ -25,6 +25,7 @@ targets:
       Release:
         DEBUG_MODE: NO
     dependencies:
+      - target: Petstore
       - carthage: XCGLogger
       - carthage: ObjcExceptionBridging
     preBuildScripts:
@@ -43,7 +44,6 @@ targets:
         INFOPLIST_FILE: XcodeGenTestAppTests/Info.plist
     dependencies:
       - target: XcodeGenTestApp
-
   XcodeGenTestAppUITests:
     type: bundle.ui-testing
     platform: iOS
@@ -54,6 +54,23 @@ targets:
         INFOPLIST_FILE: XcodeGenTestAppUITests/Info.plist
     dependencies:
       - target: XcodeGenTestApp
+
+  Petstore:
+    type: framework
+    platform: iOS
+    sources: Petstore
+    dependencies:
+      - carthage: Moya
+      - carthage: Alamofire
+  PetstoreTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources: PetstoreTests
+    settings:
+      base:
+        INFOPLIST_FILE: PetstoreTests/Info.plist
+    dependencies:
+      - target: Petstore
 
 schemes:
   XcodeGenTestApp:
