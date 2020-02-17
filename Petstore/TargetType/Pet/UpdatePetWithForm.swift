@@ -20,8 +20,8 @@ public struct UpdatePetWithForm: PetstoreApiTargetType {
     
     let petId: Int
     let name: String
-    let status: Status
-    public init(_ petId: Int, name: String, status: Status) {
+    let status: Pet.Status
+    public init(_ petId: Int, name: String, status: Pet.Status) {
         self.petId = petId
         self.name = name
         self.status = status

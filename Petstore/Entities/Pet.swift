@@ -8,6 +8,10 @@
 import Foundation
 
 public struct Pet: Codable {
+    public enum Status: String, Codable {
+        case available, pending, sold
+    }
+    
     public var id: Int
     public var category: Category
     public var name: String

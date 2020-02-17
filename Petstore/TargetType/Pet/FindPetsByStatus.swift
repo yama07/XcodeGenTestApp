@@ -16,8 +16,8 @@ public struct FindPetByStatus: PetstoreApiTargetType {
     public var headers: [String: String]?
     public var task: Task { .requestParameters(parameters: ["status": statuses], encoding: URLEncoding.default) }
     
-    let statuses: [Status]
-    public init(_ statuses: [Status]) {
+    let statuses: [Pet.Status]
+    public init(_ statuses: [Pet.Status]) {
         self.statuses = statuses
     }
 }
