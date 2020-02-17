@@ -19,7 +19,7 @@ public struct Tag: Codable {
 
 extension Tag: Equatable {
     public static func == (lhs: Tag, rhs: Tag) -> Bool {
-        return lhs.id == rhs.id
+        lhs.id == rhs.id
             && lhs.name == rhs.name
     }
 }

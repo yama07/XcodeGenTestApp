@@ -15,8 +15,8 @@ public struct ApiResponse: Codable {
 
 extension ApiResponse: Equatable {
     public static func == (lhs: ApiResponse, rhs: ApiResponse) -> Bool {
-        return lhs.code == rhs.code
-        && lhs.type == rhs.type
-        && lhs.message == rhs.message
+        lhs.code == rhs.code
+            && lhs.type == rhs.type
+            && lhs.message == rhs.message
     }
 }

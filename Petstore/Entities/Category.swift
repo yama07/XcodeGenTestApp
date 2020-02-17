@@ -19,7 +19,7 @@ public struct Category: Codable {
 
 extension Category: Equatable {
     public static func == (lhs: Category, rhs: Category) -> Bool {
-        return lhs.id == rhs.id
+        lhs.id == rhs.id
             && lhs.name == rhs.name
     }
 }

@@ -23,12 +23,11 @@ public struct Pet: Codable {
         self.tags = tags
         self.status = status
     }
-    
 }
 
 extension Pet: Equatable {
     public static func == (lhs: Pet, rhs: Pet) -> Bool {
-        return lhs.id == rhs.id
+        lhs.id == rhs.id
             && lhs.category == rhs.category
             && lhs.name == rhs.name
             && lhs.photoUrls == rhs.photoUrls
