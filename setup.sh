@@ -5,7 +5,7 @@ if which mint >/dev/null; then
     mint bootstrap
 
     echo "===== Add frameworks ========="
-    carthage bootstrap --platform iOS --cache-builds
+    mint run Carthage/Carthage carthage bootstrap --platform iOS --cache-builds
 
     echo "===== Generate xcodeproj ====="
     mint run yonaskolb/xcodegen xcodegen generate
