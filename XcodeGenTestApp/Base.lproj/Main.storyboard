@@ -15,7 +15,27 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fkK-VX-hzv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-85" y="573"/>
+            <point key="canvasLocation" x="-125" y="540"/>
+        </scene>
+        <!--Store-->
+        <scene sceneID="G6l-y0-jf0">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Store" id="NR1-jS-s7K" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="dhY-Fa-CL8"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IdU-Tm-oUk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="138" y="540"/>
+        </scene>
+        <!--User-->
+        <scene sceneID="7D8-K0-8Wm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="User" id="NT9-z0-8Ab" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="uSd-Uy-toQ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sz6-ra-YYz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="395" y="540"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ma4-5W-I0N">
@@ -23,11 +43,14 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Lta-hm-b7W" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="IpB-h0-aQe">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="09p-W4-U2y" kind="relationship" relationship="viewControllers" id="Jwi-ay-3VH"/>
+                        <segue destination="NR1-jS-s7K" kind="relationship" relationship="viewControllers" id="7yp-H4-cvM"/>
+                        <segue destination="NT9-z0-8Ab" kind="relationship" relationship="viewControllers" id="USF-dI-NPK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V91-Eb-OpS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
