@@ -16,6 +16,15 @@ targets:
     platform: iOS
     sources:
       - XcodeGenTestApp
+      - path: "XcodeGenTestApp/Generated/Storyboard Scenes.swift"
+        optional: true
+        type: file
+      - path: "XcodeGenTestApp/Generated/Storyboard Segues.swift"
+        optional: true
+        type: file
+      - path: "XcodeGenTestApp/Generated/Assets.swift"
+        optional: true
+        type: file
     settings:
       base:
         INFOPLIST_FILE: XcodeGenTestApp/Info.plist
@@ -28,9 +37,16 @@ targets:
       - target: Petstore
       - carthage: XCGLogger
       - carthage: ObjcExceptionBridging
+      - carthage: PKHUD
     preBuildScripts:
       - name: Run SwiftFormat
         script: mint run nicklockwood/SwiftFormat swiftformat $SRCROOT
+      - name: Run SwiftGen
+        script: mint run SwiftGen/SwiftGen swiftgen
+        outputFiles:
+          - $SRCROOT/$TARGET_NAME/Generated/Storyboard Scenes.swift
+          - $SRCROOT/$TARGET_NAME/Generated/Storyboard Segues.swift
+          - $SRCROOT/$TARGET_NAME/Generated/Assets.swift
     postCompileScripts:
       - name: Run SwiftLint
         script: mint run realm/SwiftLint swiftlint

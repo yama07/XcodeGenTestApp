@@ -1,0 +1,15 @@
+ib:
+  inputs: XcodeGenTestApp
+  filter: .+\.storyboard$
+  outputs:
+    - templateName: scenes-swift4
+      output: XcodeGenTestApp/Generated/Storyboard Scenes.swift
+    - templateName: segues-swift4
+      output: XcodeGenTestApp/Generated/Storyboard Segues.swift
+
+xcassets:
+  inputs:
+    - XcodeGenTestApp/Images.xcassets
+  outputs:
+    - templateName: swift4
+      output: XcodeGenTestApp/Generated/assets.swift
