@@ -1,0 +1,16 @@
+default_platform(:ios)
+
+platform :ios do
+
+  desc "デバッグ用のIPAファイルを作成"
+  lane :make_debug_ipa do
+	  gym(
+	    configuration: "Debug",
+  	  clean: true,
+	    output_directory: "./build",
+	    output_name: "XcodeGenTestApp.ipa",
+	    export_method: "development"
+	  )
+  end
+
+end

@@ -1,4 +1,22 @@
 Generated
+vendor/bundle
+
+
+# fastlane
+#
+
+## fastlane specific
+fastlane/report.xml
+
+## deliver temporary files
+fastlane/Preview.html
+
+## snapshot generated screenshots
+fastlane/screenshots
+
+## scan temporary files
+fastlane/test_output
+
 
 ### https://raw.github.com/github/gitignore/6c87d249af5f2b3f8ab65ae0a2648682ee4e8a2d/Swift.gitignore
 
