@@ -3,6 +3,7 @@ if which mint >/dev/null; then
     echo "Install packages"
     echo "===== Install packages ======="
     mint bootstrap
+    bundle install
 
     echo "===== Add frameworks ========="
     mint run Carthage/Carthage carthage bootstrap --platform iOS --cache-builds
