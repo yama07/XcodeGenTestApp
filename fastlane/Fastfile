@@ -65,4 +65,18 @@ platform :ios do
       html: true
     )
   end
+
+  
+  desc "スクリーンショットを撮影"
+  lane :screenshots do
+    snapshot(
+      scheme: 'XcodeGenTestApp',
+      devices: [ 'iPhone 11 Pro Max', 'iPhone 8' ],
+      languages: [ 'ja-JP' ],
+      concurrent_simulators: true,
+      output_directory: 'fastlane/screenshots',
+      output_simulator_logs: false,
+      skip_open_summary: true
+    )
+  end
 end

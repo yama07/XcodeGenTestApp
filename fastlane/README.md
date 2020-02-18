@@ -36,6 +36,11 @@ XcodeGenTestAppテスト実行
 fastlane ios test_Petstore
 ```
 Petstoreテスト実行
+### ios screenshots
+```
+fastlane ios screenshots
+```
+スクリーンショットを撮影
 
 ----
 

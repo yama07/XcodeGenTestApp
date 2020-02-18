@@ -24,18 +24,22 @@ class GetPetById: XCTestCase {
     
     func testGetPetById() {
         let app = XCUIApplication()
+        setupSnapshot(app)
         app.launch()
+        snapshot("launch")
         
         XCTContext.runActivity(named: "Petページを開く") { _ in
             let petTabIBartem = app.tabBars.buttons["Pet"]
             XCTAssert(petTabIBartem.exists)
             petTabIBartem.tap()
+            snapshot("Petページ")
         }
         
         XCTContext.runActivity(named: "GET /pet/{petId}を選択する") { _ in
             let getPetByIdCell = app.tables/*@START_MENU_TOKEN@*/.staticTexts["GET ​/pet​/{petId}"]/*[[".cells.staticTexts[\"GET ​\/pet​\/{petId}\"]",".staticTexts[\"GET ​\/pet​\/{petId}\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
             XCTAssert(getPetByIdCell.exists)
             getPetByIdCell.tap()
+            snapshot("GetPetByIdページ")
         }
         
         XCTContext.runActivity(named: "Pet IDを入力する") { _ in
@@ -59,6 +63,7 @@ class GetPetById: XCTestCase {
                         evaluatedWith: responseTextView.value as? String ?? "",
                         handler: nil)
             waitForExpectations(timeout: 5, handler: nil)
+            snapshot("GetPetByIdAPIのレスポンス")
         }
     }
 }
