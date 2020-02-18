@@ -102,10 +102,27 @@ schemes:
         - XcodeGenTestApp
       targets:
         - name: XcodeGenTestAppTests
-          parallelizable: true
           randomExecutionOrder: true
         - name: XcodeGenTestAppUITests
-          parallelizable: true
+          randomExecutionOrder: true
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release
+
+  Petstore:
+    build:
+      targets:
+        Petstore: all
+    test:
+      config: Debug
+      gatherCoverageData: true
+      coverageTargets:
+        - Petstore
+      targets:
+        - name: PetstoreTests
           randomExecutionOrder: true
     profile:
       config: Release

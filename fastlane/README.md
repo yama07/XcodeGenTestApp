@@ -21,6 +21,21 @@ or alternatively using `brew cask install fastlane`
 fastlane ios make_debug_ipa
 ```
 デバッグ用のIPAファイルを作成
+### ios test_all
+```
+fastlane ios test_all
+```
+全テスト実行
+### ios test_XcodeGenTestApp
+```
+fastlane ios test_XcodeGenTestApp
+```
+XcodeGenTestAppテスト実行
+### ios test_Petstore
+```
+fastlane ios test_Petstore
+```
+Petstoreテスト実行
 
 ----
 

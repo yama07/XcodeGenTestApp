@@ -4,13 +4,65 @@ platform :ios do
 
   desc "デバッグ用のIPAファイルを作成"
   lane :make_debug_ipa do
-	  gym(
-	    configuration: "Debug",
-  	  clean: true,
-	    output_directory: "./build",
-	    output_name: "XcodeGenTestApp.ipa",
-	    export_method: "development"
-	  )
+    gym(
+      scheme: "XcodeGenTestApp",
+      configuration: "Debug",
+      clean: true,
+      output_directory: "fastlane",
+      output_name: "XcodeGenTestApp.ipa",
+      export_method: "development"
+    )
   end
 
+  desc "全テスト実行"
+  lane :test_all do
+    test_XcodeGenTestApp
+    test_Petstore
+  end
+
+
+  desc "XcodeGenTestAppテスト実行"
+  lane :test_XcodeGenTestApp do
+    output_prefix = "fastlane/test_output/XcodeGenTestApp"
+    scan(
+      scheme: "XcodeGenTestApp",
+      configuration: "Debug",
+      device: "iPhone 11 Pro Max",
+      derived_data_path: "#{output_prefix}/derived_data",
+      buildlog_path: "#{output_prefix}/scan_build_log",
+      output_directory: "#{output_prefix}/scan_output",
+      output_types: "html,junit",
+      output_files: "report.html,report.xml"
+    )
+    slather(
+      scheme: "XcodeGenTestApp",
+      proj: "XcodeGenTestApp.xcodeproj",
+      ignore: "XcodeGenTestApp/Generated/**",
+      build_directory: "#{output_prefix}/derived_data",
+      output_directory: "#{output_prefix}/slather",
+      html: true
+    )
+  end
+
+  desc "Petstoreテスト実行"
+  lane :test_Petstore do
+    output_prefix = "fastlane/test_output/Petstore"
+    scan(
+      scheme: "Petstore",
+      configuration: "Debug",
+      device: "iPhone 11 Pro Max",
+      derived_data_path: "#{output_prefix}/derived_data",
+      buildlog_path: "#{output_prefix}/scan_build_log",
+      output_directory: "#{output_prefix}/scan_output",
+      output_types: "html,junit",
+      output_files: "report.html,report.xml"
+    )
+    slather(
+      scheme: "Petstore",
+      proj: "XcodeGenTestApp.xcodeproj",
+      build_directory: "#{output_prefix}/derived_data",
+      output_directory: "#{output_prefix}/slather",
+      html: true
+    )
+  end
 end
